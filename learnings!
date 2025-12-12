@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* a = new int(10);   // allocate memory manually
+    cout << "Value: " << *a << endl;
+
+    delete a;               // free memory manually
+    cout << "Memory freed manually!" << endl;
+
+    return 0;
+}
+
+//What happens?
+
+//new allocates memory
+
+//delete frees memory immediately
+
+//No background system cleans it for you
+
+
+//If you forget delete, memory leaks.
+
+//This is why C++ is fast and predictable
