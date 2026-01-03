@@ -23,3 +23,25 @@ int main() {
 //If you forget delete, memory leaks.
 
 //This is why C++ is fast and predictable
+
+
+Another example (swap – won’t work with pass by value)
+
+#include <iostream>
+using namespace std;
+
+void swap(int x, int y) {
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+int main() {
+    int a = 5, b = 10;
+
+    swap(a, b);
+
+    cout << a << " " << b << endl;
+
+    return 0;
+}
