@@ -1,0 +1,117 @@
+### Binary Search
+
+Binary Search is a much more efficient searching algorithm than Linear Search. 
+Instead of checking every element one by one, it repeatedly divides the search
+space into half.
+
+Why Binary Search?
+Suppose we have 1000 elements:
+Linear Search → Up to 1000 comparisons
+Binary Search → Only about 10 comparisons (log₂(1000) ≈ 10)
+This makes Binary Search significantly faster for large datasets.
+Important: Binary Search works only on a sorted array.
+
+=>if linear search was taking for 1000 operations it taking 1000 comparisons whereas
+binary search can be taken for 1000 operations it only take 10 comparisons
+
+for eg ; 
+
+10 | 20 | 30 | 40 | 50 | 60 | 70 | 90
+
+if say my target was on {target : 70}
+
+step-1 : i will keep the start position (0th idex)
+step-2 : i will keep the end position (n-1 th index) 
+step-3 : i will find the mid of it mid = (start + end) / 2 ;
+
+here we have two cases : 
+                        i. mid < n ;
+                        ii. mid > n ;
+
+case - i  : if mid < n  , then we can ignore the right most part of it 
+case - ii : if mid > n , then we can neglect the left most part of it 
+
+=>
+10 | 20 | 30 | 40 | 50 | 60 | 70 | 90
+ 0 |  1 |  2 |  3 |  4 |  5 |  6 |  7
+here start = 0 ;  end  = 7 ; mid = (start + end) / 2  = (0+7)/2 = approx at 3rd index; 
+
+now 40 will be my mid
+is (target ie.,(70) is 40 ??) nooo & 40>n or 40 < n here 40 < n ;
+so by the conditions we will neglect the left most part of it 
+
+=>
+50 | 60 | 70 | 90
+ 0 |  1 |  2 |  3 
+
+here start = 0 ; end = 3 ; mid = 0+3/2 ~= 1
+
+so the mid is 60 at index-1 so by that is our mid == target ?? nahhh
+so as 60>target (no) and 60 < target (yes) ;so we can neglect the left most part
+
+thus 
+  70 | 90
+  0  |  1 
+
+  now the start  = 0 ; end = 1 ; mid = (0+1/2) ~= 0 ;
+  as our mid == target ?? yes
+  so stop the searching :)
+
+### For Visualisation : 
+
+[10, 20, 30, 40, 50, 60, 70, 90]
+              ↑
+            mid=40
+
+40 < 70 → Search Right
+──────────────────────
+
+[50, 60, 70, 90]
+      ↑
+    mid=60
+
+60 < 70 → Search Right
+──────────────────────
+
+[70, 90]
+ ↑
+mid=70
+
+Found!
+
+NOTE : Binary Search works by repeatedly halving the search space.
+Instead of checking every element, it eliminates half of the remaining 
+elements after each comparison, resulting in a time complexity of O(log n). 
+This makes it one of the most efficient searching algorithms for sorted data.
+
+The simplest mental model is:
+
+Look at the middle element.
+If the target is bigger, throw away the left half.
+If the target is smaller, throw away the right half.
+Repeat until found or the search space becomes empty.
+
+Why Binary Search Is Fast
+
+Each comparison cuts the search space in half:
+            1000 elements
+            ↓
+            500
+            ↓
+            250
+            ↓
+            125
+            ↓
+            62
+            ↓
+            31
+            ↓
+            15
+            ↓
+            7
+            ↓
+            3
+            ↓
+            1
+
+That's why binary search runs in O(log n) time instead of O(n) like a linear search.
