@@ -115,3 +115,23 @@ Each comparison cuts the search space in half:
             1
 
 That's why binary search runs in O(log n) time instead of O(n) like a linear search.
+
+### STL Version:
+
+C++ already provides binary search utilities in the algorithm library:
+
+#include <algorithm>
+
+if (binary_search(arr.begin(), arr.end(), target)) {
+    cout << "Found";
+}
+
+Or to get the position:
+
+auto it = lower_bound(arr.begin(), arr.end(), target);
+
+if (it != arr.end() && *it == target) {
+    cout << "Index = " << (it - arr.begin());
+}
+
+Important: Binary search only works correctly if the array/vector is sorted.
