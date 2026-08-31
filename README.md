@@ -4,3 +4,5 @@
 3: https://github.com/gillsdk/gill
 4: https://github.com/codama-idl/codama
 https://en.cppreference.com/w/cpp.html
+
+https://youtu.be/GrNbuWWJYiI?si=nmHWmpO-izjIdNy4
